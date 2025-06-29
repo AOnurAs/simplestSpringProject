@@ -18,6 +18,9 @@ public class AppConfig {
 		employeeList.add(new Employee("2", "KM", "S"));
 		employeeList.add(new Employee("3", "BM", "T"));
 		employeeList.add(new Employee("4", "SK", "L"));
+		employeeList.add(new Employee("5", "SK", "P"));
+		employeeList.add(new Employee("6", "DK", "L"));
+		employeeList.add(new Employee("7", "SK", "L"));
 		
 		return employeeList;
 		

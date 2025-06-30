@@ -55,4 +55,19 @@ public class EmployeeRepository {
 		}
 		return employeeWithParams;
 	}
+	
+	public Employee saveEmployee(Employee newEmployee) {
+		employeeList.add(newEmployee);
+		return newEmployee;
+	}
+	
+	public Boolean deleteEmployee(String idString){
+		for (Employee employee : employeeList) {
+			if(idString.equalsIgnoreCase(employee.getIdString())) {
+				employeeList.remove(employee);
+				return true;
+			}
+		}
+		return false;
+	}
 }

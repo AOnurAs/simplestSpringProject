@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.AOA.model.Employee;
+import com.AOA.model.UpdateEmployeeRequest;
 
 @Repository
 public class EmployeeRepository {
@@ -69,5 +70,26 @@ public class EmployeeRepository {
 			}
 		}
 		return false;
+	}
+	
+	private Employee findEmployeeById(String id){
+		for (Employee employee : employeeList) {
+			if(employee.getIdString().equals(id)) {
+				return employee;
+			}
+			
+		}
+		return null;
+	}
+	
+	public Employee updateEmployee(String id, UpdateEmployeeRequest updateRequest) {
+		Employee foundEmployee = findEmployeeById(id);
+		
+		if(foundEmployee != null) {
+			foundEmployee.setFirstName(updateRequest.getFirstName());
+			foundEmployee.setLastName(updateRequest.getLastName());
+		}
+		
+		return foundEmployee;
 	}
 }
